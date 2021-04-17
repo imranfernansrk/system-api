@@ -13,7 +13,7 @@ export const HeaderTitle = {
     CONTACT: "Contact",
     ABOUT_US: "About Us",
     Get_STARTED: "Get Started",
-    COMPANIES: "Companies",
+    POSTS: "Posts",
     PROFILE: "Profile"
 }
 export const HeaderString = {
@@ -67,9 +67,13 @@ export const SignupString = {
 // export const BASE_URL = "https://crs-portal-api.code-ps.com/api/v1";
 export const BASE_URL = "https://us-central1-warfy-dev.cloudfunctions.net/WarfyAPP"
 export const PROXY = "http://localhost:8080/"; 
+export const GITHUB_BASE_URL = "https://my-json-server.typicode.com/imranfernansrk/priv"
 export const API = {
     SIGN_UP: PROXY + BASE_URL + "/UserSignUp",
     SIGN_IN: PROXY + BASE_URL + "/UserSignIn",
+    POSTS: GITHUB_BASE_URL + "/posts",
+    COMMENTS: GITHUB_BASE_URL + "/comments",
+    SINGLE_POST_COMMENTS : GITHUB_BASE_URL + "/comments?postId=",
     // LOGIN: BASE_URL + "/users/login",
     COMPANIES: BASE_URL + "/companies/"
 }

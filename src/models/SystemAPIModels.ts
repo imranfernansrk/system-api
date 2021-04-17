@@ -1,7 +1,8 @@
 export interface RootState {
     datas: {},
-    companies: {},
-    newUser: {}
+    posts: [],
+    newUser: {},
+    postComments: [],
 }
 
 export interface Login {

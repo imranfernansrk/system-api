@@ -7,8 +7,9 @@ import { Login } from "./components/Login";
 import { MemberProfile } from "./components/MemberProfile";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { Companies } from "./components/Companies";
+import { Posts, Comments, PostLayout } from "./components/Posts";
 import { Signup } from "./components/Signup";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
@@ -26,7 +27,8 @@ const App = () => {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/profile" component={MemberProfile} />
-            <Route path="/companies" component={Companies} />
+            <Route path="/posts" component={Posts} />
+            <Route path="/comments" component={Comments} />
           </Switch>
           <Footer />
         </Router>

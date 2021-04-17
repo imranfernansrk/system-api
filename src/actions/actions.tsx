@@ -38,15 +38,27 @@ export const userLogoutAction = () => {
         payload: {}
     }
 }
-export const companiesFetchSuccess = (data: any): ActionObject => {
+export const postsFetchSuccess = (data: any): ActionObject => {
     return {
-        type: Types.COMPANIES_FETCH_SUCCESS,
+        type: Types.POSTS_FETCH_SUCCESS,
         payload: data
     }
 }
-export const companiesFetchFailed = (error: any): ActionObject => {
+export const postsFetchFailed = (error: any): ActionObject => {
     return {
-        type: Types.COMPANIES_FETCH_FAILED,
+        type: Types.POSTS_FETCH_FAILED,
+        payload: error
+    }
+}
+export const commentsFetchSuccess = (data: any): ActionObject => {
+    return {
+        type: Types.COMMENTS_FETCH_SUCCESS,
+        payload: data
+    }
+}
+export const commentsFetchFailed = (error: any): ActionObject => {
+    return {
+        type: Types.COMMENTS_FETCH_FAILED,
         payload: error
     }
 }
@@ -85,20 +97,51 @@ export const newUserSignData = (userData: SystemAPIModels.Signup) => {
             })
     }
 }
-export const fetchCompaniesDatas = () => {
+export const fetchPostDatas = () => {
     return async (dispatch: Dispatch<ActionObject>) => {
-        await axios.post(API.COMPANIES, {
+        await axios.get(API.POSTS, {
             headers: { 'Content-Type': 'application/json' }
         })
             .then(res => {
-                console.log("actions res", res);
-                console.log("actions res", res);
-                dispatch(companiesFetchSuccess(res.data));
+                console.log("posts res", res);
+                console.log("posts res data", res.data);
+                dispatch(postsFetchSuccess(res.data));
             })
             .catch(err => {
-                console.log("actions res", err.toJSON())
-                console.log("actions error", err.response.status)
-                dispatch(companiesFetchFailed(err.response.status));
+                console.log("post eror", err)
+                dispatch(postsFetchFailed(err.response));
+            })
+    }
+}
+export const fetchPostCommentsDatas = (postId: number) => {
+    return async (dispatch: Dispatch<ActionObject>) => {
+        await axios.get(API.SINGLE_POST_COMMENTS + `${postId}`, {
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => {
+                console.log("posts res", res);
+                console.log("posts res data", res.data);
+                dispatch(postsFetchSuccess(res.data));
+            })
+            .catch(err => {
+                console.log("post eror", err)
+                dispatch(postsFetchFailed(err.response));
+            })
+    }
+}
+export const addPostData = (data: any) => {
+    return async (dispatch: Dispatch<ActionObject>) => {
+        await axios.post(API.POSTS, data, {
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(res => {
+                console.log("add posts res", res);
+                console.log("add posts res data", res.data);
+                // dispatch(postsFetchSuccess(res.data));
+            })
+            .catch(err => {
+                console.log("add post eror", err)
+                // dispatch(postsFetchFailed(err.response));
             })
     }
 }

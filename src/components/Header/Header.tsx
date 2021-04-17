@@ -49,13 +49,13 @@ const HeaderTab = () => {
         });
     }
     const profileMenu = (
-        <Menu>
+        <Menu >
             <Menu.Item key="0">
-                <a href="#">View Profile</a>
+                <Link className="external-link" to="/profile">View Profile</Link>
             </Menu.Item>
-            <Menu.Item key="1">
+            {/* <Menu.Item key="1">
                 <a href="#">Edit Profile</a>
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Divider />
             <Menu.Item key="3" onClick={() => clearLoggedUser()}>Sign Out</Menu.Item>
         </Menu>
@@ -71,7 +71,7 @@ const HeaderTab = () => {
                 <Menu className="homepage-header-menus" theme="light" mode="horizontal" defaultSelectedKeys={[activeTabKey]} onSelect={() => setActiveTabKey(activeTabKey)} defaultOpenKeys={['sub1']}>
                     <Menu.Item key="1">{HeaderTitle.HOME}</Menu.Item>
                     <Menu.Item key="2">
-                        <Link className="external-link" to="/companies">{HeaderTitle.COMPANIES}</Link>
+                        <Link className="external-link" to="/posts">{HeaderTitle.POSTS}</Link>
                     </Menu.Item>
                     <Menu.Item key="3">{HeaderTitle.SERVICES}</Menu.Item>
                     <Menu.Item key="4">{HeaderTitle.CONTACT}</Menu.Item>
@@ -80,7 +80,7 @@ const HeaderTab = () => {
                 <Link className="external-link" to="/login">{HeaderTitle.Get_STARTED}</Link>
             </Menu.Item> */}
                     <Menu.Item key="6">
-                        <Dropdown overlay={profileMenu} trigger={['click']}>
+                        <Dropdown overlay={profileMenu} trigger={['click']} className="profile-drop-down">
                             <Avatar size="default" icon={<UserOutlined />} />
                         </Dropdown>
                     </Menu.Item>

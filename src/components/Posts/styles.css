@@ -1,0 +1,58 @@
+.main-card-container {
+    margin: 20px 0;
+}
+.main-card-container .ant-card-body {
+    padding: 0;
+}
+
+.post-card { 
+    width: 100%;
+    height: auto;
+    /* margin: 20px 0; */
+}
+.post-card .ant-card-body {
+    padding: 0;
+}
+.post-card .ant-card-actions {
+    display: flex;
+}
+.post-card .ant-card-actions li {
+    margin: 10px 10px;
+    width: auto !important;
+    border: 0;
+}
+.post-options-button {
+    font-size: 30px !important;
+}
+.post-card .ant-card-actions li .post-share-button {
+    margin-left: auto !important;
+}
+.comments-container {
+    position: relative;
+}
+.comments-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 64px;
+    z-index: 99;
+    background-color: azure;
+    padding: 0;
+}
+.comments-header-back {
+    font-size: 30px;
+    margin-right: 10px;
+}
+.comments-header-title {
+    font-size: 20px;
+}
+.comments-content {
+    background-color: white;
+}
+.comments-lists {
+    list-style-type: none;
+}
+.post-describe p {
+    padding-left: 15px;
+}

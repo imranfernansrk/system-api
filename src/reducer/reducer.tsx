@@ -4,8 +4,9 @@ import { Types } from "../actions";
 
 const initialSystemAPIState: SystemAPIModels.RootState = {
     datas: {},
-    companies: {},
-    newUser: {}
+    posts: [],
+    newUser: {},
+    postComments: []
 }
 
 export const systemAPIReducer = (state: SystemAPIModels.RootState = initialSystemAPIState, action: ActionObject): SystemAPIModels.RootState => {
@@ -36,15 +37,25 @@ export const systemAPIReducer = (state: SystemAPIModels.RootState = initialSyste
                 ...state,
                 datas: action.payload,
             }
-        case Types.COMPANIES_FETCH_SUCCESS:
+        case Types.POSTS_FETCH_SUCCESS:
             return {
                 ...state,
-                companies: action.payload,
+                posts: action.payload,
             }
-        case Types.COMPANIES_FETCH_FAILED:
+        case Types.POSTS_FETCH_FAILED:
             return {
                 ...state,
-                companies: { "error": action.payload },
+                posts: [],
+            }
+        case Types.COMMENTS_FETCH_SUCCESS:
+            return {
+                ...state,
+                postComments: action.payload,
+            }
+        case Types.COMMENTS_FETCH_FAILED:
+            return {
+                ...state,
+                postComments: [],
             }
         default: return state;
     }
