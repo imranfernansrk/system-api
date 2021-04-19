@@ -13,7 +13,8 @@ const CommentsContent = ({postcommentsData}: Props) => {
                                 postcommentsData.map((postComment: any) =>
                                     <li key={postComment.id}>
                                         <div>
-                                            <p>{postComment.body}</p>
+                                            <span><b>Username </b></span>
+                                            <span>{postComment.body}</span>
                                         </div>
                                     </li>
                                 )

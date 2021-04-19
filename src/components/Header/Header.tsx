@@ -29,6 +29,7 @@ const HeaderTab = () => {
     useEffect(() => {
         console.log("user datas header", datas)
         if (datas != {} && datas.hasOwnProperty('data')) {
+            setUserSignOut(false);
             setNeedHeader(true);
         }
     }, [datas]);
@@ -88,6 +89,7 @@ const HeaderTab = () => {
             </Header>
         )
     };
-    return null;
+
+    return <></>;
 }
 export default HeaderTab;

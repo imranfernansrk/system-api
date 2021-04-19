@@ -56,3 +56,15 @@
 .post-describe p {
     padding-left: 15px;
 }
+.post-sidebar-title {
+    color: white !important;
+    text-align: center;
+}
+.post-menu-sidebar {
+    background-color: black;
+    height: 100%;
+}
+.post-list-container {
+    overflow: scroll;
+    height: 100%;
+}

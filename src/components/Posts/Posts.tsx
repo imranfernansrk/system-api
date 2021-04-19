@@ -7,6 +7,7 @@ import { SystemAPIModels } from "../../models";
 
 import "./styles.css";
 import { Row, Col } from "antd"
+import Title from "antd/lib/typography/Title";
 
 
 const Posts = () => {
@@ -32,13 +33,15 @@ const Posts = () => {
     const onCardChange = (e: string) => {
         console.log("Tabs", e)
     }
-    const onSelectComments = (postId : number) => {
+    const onSelectComments = (postId: number) => {
         sessionStorage.setItem('postId', postId.toString());
         setShowComments(true);
     }
-    if(showComments){
-        return (<Redirect to="/comments"/>)
+    if (showComments) {
+        return (<Redirect to="/comments" />)
     }
+    const height = window.innerHeight + 'px';
+
     return (
         <div>
             {
@@ -50,16 +53,21 @@ const Posts = () => {
                                 <input type="text" placeholder="Enter Title" name="title" onChange={(e) => onChangeEvent(e)} />
                                 <button onSubmit={(e) => onSubmitEvent(e)} type="submit">Submit</button>
                             </form> */}
-                            <Row>
-                                <Col span={4} style={{ backgroundColor: 'aqua' }}>
+                            <Row style={{height: height}} className="post-menu-sidebar">
+                                <Col span={4}>
+                                    <Title level={5} className="post-sidebar-title">
+                                        Post Menu Options
+                                    </Title>
                                 </Col>
-                                <Col span={16}>
-                                    <PostsContent 
-                                    postsData={postsData} 
-                                    onSelectComments={onSelectComments}
-                                    setShowComments={setShowComments} />
+                                <Col span={16} className="post-list-container ">
+                                    <PostsContent
+                                        postsData={postsData}
+                                        onSelectComments={onSelectComments} />
                                 </Col>
-                                <Col span={4} style={{ backgroundColor: 'aqua' }}>
+                                <Col span={4} style={{ backgroundColor: 'black', height: '100%' }}>
+                                    <Title level={5} className="post-sidebar-title">
+                                        Chat List
+                                    </Title>
                                 </Col>
                             </Row>
                         </div>

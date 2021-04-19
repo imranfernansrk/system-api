@@ -6,10 +6,9 @@ import { CommentOutlined, HeartOutlined, ShareAltOutlined, UserOutlined } from "
 
 interface Props {
     postsData: [],
-    onSelectComments: Dispatch<number>;
-    setShowComments: Dispatch<SetStateAction<boolean>>
+    onSelectComments: Dispatch<number>,
 }
-const PostsContents = ({ postsData, onSelectComments, setShowComments }: Props) => {
+const PostsContents = ({ postsData, onSelectComments }: Props) => {
 
     return (
         <div>
@@ -37,7 +36,7 @@ const PostsContents = ({ postsData, onSelectComments, setShowComments }: Props) 
                                                     className="post-card"
                                                     actions={[
                                                         <HeartOutlined title="hai" className="post-options-button" key="likes" />,
-                                                        <CommentOutlined className="post-options-button" key="comments" />,
+                                                        <CommentOutlined onClick={()=>onSelectComments(post.id)} className="post-options-button" key="comments" />,
                                                         <ShareAltOutlined className="post-options-button" key="share" />,
                                                     ]}>
                                                     <>
